@@ -45,17 +45,17 @@ void move_file(const char *source, const char *destination);
  */
 void delete_file(const char *filename);
 
-// /**
-//  * Creates a new directory with the specified name.
-//  * @param dirname The name of the directory to create.
-//  */
-// void create_directory(const char *dirname);
+/**
+ * Creates a new directory with the specified name.
+ * @param dirname The name of the directory to create.
+ */
+void create_directory(const char *dirname);
 
-// /**
-//  * Removes the specified directory.
-//  * @param dirname The name of the directory to remove.
-//  */
-// void remove_directory(const char *dirname);
+/**
+ * Removes the specified directory.
+ * @param dirname The name of the directory to remove.
+ */
+void remove_directory(const char *dirname);
 
 /*
  * Prints current working directory on stout

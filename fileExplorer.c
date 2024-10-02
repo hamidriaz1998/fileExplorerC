@@ -36,13 +36,11 @@ int main() {
       move_file(args[1], args[2]);
     } else if (strcmp(args[0], "rm") == 0) {
       delete_file(args[1]);
-    }
-    //  else if (strcmp(args[0], "mkdir") == 0) {
-    //   create_directory(args[1]);
-    // } else if (strcmp(args[0], "rmdir") == 0) {
-    //   remove_directory(args[1]);
-    // }
-    else if (strcmp(args[0], "pwd") == 0) {
+    } else if (strcmp(args[0], "mkdir") == 0) {
+      create_directory(args[1]);
+    } else if (strcmp(args[0], "rmdir") == 0) {
+      remove_directory(args[1]);
+    } else if (strcmp(args[0], "pwd") == 0) {
       print_current_path();
     } else if (strcmp(args[0], "clear") == 0) {
       system("clear");

@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 #include <unistd.h>
 
 typedef unsigned char byte_t;
@@ -101,5 +102,17 @@ void move_file(const char *source, const char *destination) {
   } else {
     copy_file(source, destination);
     delete_file(source);
+  }
+}
+
+void create_directory(const char *dirname) {
+  if (mkdir(dirname, 0777)) {
+    fprintf(stderr, "Error creating directory");
+  }
+}
+
+void remove_directory(const char *dirname) {
+  if (rmdir(dirname) != 0) {
+    fprintf(stderr, "Error removing directory");
   }
 }
