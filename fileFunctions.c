@@ -4,15 +4,27 @@
 #include <string.h>
 #include <unistd.h>
 void list_directory(const char *path) {
-  struct dirent *de;
   DIR *dir = opendir(path);
   if (dir == NULL) {
     fprintf(stderr, "Couldn't open the directory");
     return;
   }
-  while ((de = readdir(dir)) != NULL) {
-    printf("%s\n", de->d_name);
+
+  struct dirent **namelist;
+  int n = scandir(path, &namelist, NULL, alphasort);
+  if (n < 0) {
+    fprintf(stderr, "Couldn't read the directory");
+    closedir(dir);
+    return;
   }
+
+  printf("\n");
+  for (int i = 0; i < n; i++) {
+    printf("%s\n", namelist[i]->d_name);
+    free(namelist[i]);
+  }
+  printf("\n");
+  free(namelist);
   closedir(dir);
   return;
 }
