@@ -1,11 +1,11 @@
 #ifndef FILEFUNCTIONS_H
 #define FILEFUNCTIONS_H
 
-#include <dirent.h>
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
+#include <sys/types.h>
 
 /**
  * Lists the contents of the specified directory.
