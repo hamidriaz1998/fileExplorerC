@@ -1,10 +1,11 @@
 #ifndef FILEFUNCTIONS_H
 #define FILEFUNCTIONS_H
 
-#include <dirent.h> // For DIR type
-#include <stdio.h>  // For FILE type
-#include <stdlib.h> // For size_t
+#include <dirent.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 /**
  * Lists the contents of the specified directory.
@@ -18,18 +19,18 @@ void list_directory(const char *path);
  */
 void change_directory(const char *path);
 
-// /**
-//  * Displays the contents of the specified file.
-//  * @param filename The name of the file to display.
-//  */
-// void display_file(const char *filename);
+/**
+ * Displays the contents of the specified file.
+ * @param filename The name of the file to display.
+ */
+void display_file(const char *filename);
 
-// /**
-//  * Copies the contents of the source file to the destination file.
-//  * @param source The path of the source file.
-//  * @param destination The path of the destination file.
-//  */
-// void copy_file(const char *source, const char *destination);
+/**
+ * Copies the contents of the source file to the destination file.
+ * @param source The path of the source file.
+ * @param destination The path of the destination file.
+ */
+void copy_file(const char *source, const char *destination);
 
 // /**
 //  * Moves or renames the source file to the destination.
@@ -55,5 +56,10 @@ void change_directory(const char *path);
 //  * @param dirname The name of the directory to remove.
 //  */
 // void remove_directory(const char *dirname);
+
+/*
+ * Prints current working directory on stout
+ */
+void print_current_path();
 
 #endif // FILEFUNCTIONS_H
