@@ -1,4 +1,5 @@
 #include <dirent.h>
+#include <libgen.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -39,7 +40,7 @@ void print_current_path() {
 
 void change_directory(const char *path) {
   if (chdir(path) != 0) {
-    fprintf(stderr, "Couldn't change directory\n");
+    fprintf(stderr, "Error Changing directory\n");
   }
   print_current_path();
 }
@@ -76,5 +77,29 @@ void copy_file(const char *source, const char *destination) {
       fputs("Mismatch\n", stderr);
       return;
     }
+  }
+}
+
+void delete_file(const char *filename) {
+  if (remove(filename) != 0) {
+    fprintf(stderr, "Error deleting the source file\n");
+  }
+}
+
+void move_file(const char *source, const char *destination) {
+  char src_path[256], dest_path[256];
+  realpath(source, src_path);
+  realpath(destination, dest_path);
+
+  char *src_dir = dirname(strdup(src_path));
+  char *dest_dir = dirname(strdup(dest_path));
+
+  if (strcmp(src_dir, dest_dir) == 0) {
+    if (rename(source, destination) != 0) {
+      fprintf(stderr, "Error renaming file\n");
+    }
+  } else {
+    copy_file(source, destination);
+    delete_file(source);
   }
 }

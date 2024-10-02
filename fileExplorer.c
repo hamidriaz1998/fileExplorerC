@@ -32,12 +32,12 @@ int main() {
       display_file(args[1]);
     } else if (strcmp(args[0], "cp") == 0) {
       copy_file(args[1], args[2]);
+    } else if (strcmp(args[0], "mv") == 0) {
+      move_file(args[1], args[2]);
+    } else if (strcmp(args[0], "rm") == 0) {
+      delete_file(args[1]);
     }
-    //  else if (strcmp(args[0], "mv") == 0) {
-    //   move_file(args[1], args[2]);
-    // } else if (strcmp(args[0], "rm") == 0) {
-    //   delete_file(args[1]);
-    // } else if (strcmp(args[0], "mkdir") == 0) {
+    //  else if (strcmp(args[0], "mkdir") == 0) {
     //   create_directory(args[1]);
     // } else if (strcmp(args[0], "rmdir") == 0) {
     //   remove_directory(args[1]);

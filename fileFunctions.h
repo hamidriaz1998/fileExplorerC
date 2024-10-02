@@ -32,18 +32,18 @@ void display_file(const char *filename);
  */
 void copy_file(const char *source, const char *destination);
 
-// /**
-//  * Moves or renames the source file to the destination.
-//  * @param source The path of the source file.
-//  * @param destination The path of the destination file.
-//  */
-// void move_file(const char *source, const char *destination);
+/**
+ * Moves or renames the source file to the destination.
+ * @param source The path of the source file.
+ * @param destination The path of the destination file.
+ */
+void move_file(const char *source, const char *destination);
 
-// /**
-//  * Deletes the specified file.
-//  * @param filename The name of the file to delete.
-//  */
-// void delete_file(const char *filename);
+/**
+ * Deletes the specified file.
+ * @param filename The name of the file to delete.
+ */
+void delete_file(const char *filename);
 
 // /**
 //  * Creates a new directory with the specified name.
